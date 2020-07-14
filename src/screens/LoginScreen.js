@@ -1,4 +1,6 @@
 import React from 'react';
+import * as fonts from 'expo-font'
+
 import { Text, TextInput, StyleSheet, View, TouchableOpacity, Image } from 'react-native';
 
 const LoginScreen = props => {

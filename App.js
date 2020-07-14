@@ -1,7 +1,9 @@
-import { createStackNavigator, createAppContainer } from 'react-navigation-stack';
+import {createAppContainer} from 'react-navigation'; 
+import {createStackNavigator} from 'react-navigation-stack';
 import HomeScreen from './src/screens/HomeScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import RegisterScreen from './src/screens/RegisterScreen';
+import { View } from 'react-native';
 
 const AppNavigator = createStackNavigator(
   {
@@ -10,11 +12,15 @@ const AppNavigator = createStackNavigator(
     Register: RegisterScreen,
   },
   {
+    
     initialRouteName: 'Home',
     defaultNavigationOptions: {
-      title: 'Diario A Diario App',
+      title: 'DiarioAdiario App',
     },
+    headerLayoutPreset: 'center'
   },
 );
+
 const AppContainer = createAppContainer(AppNavigator)
 export default AppContainer;
+

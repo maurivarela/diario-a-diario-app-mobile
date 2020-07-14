@@ -1,10 +1,15 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import * as fonts from 'expo-font'
+
+
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { preventAutoHide } from 'expo-splash-screen';
 
 const HomeScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <View>
+                <Image style={styles.logo} source={require('../Images/logo-diario.png')}></Image>
                 <Text style={styles.titulo}>Diario A Diario</Text>
                 <Text style={styles.subtitulo}>Cambiando el futuro,</Text>
                 <Text style={styles.subtitulo2}>un día a la vez</Text>
@@ -27,29 +32,42 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#EEF2F5',
     },
+    logo: {
+        width: 100,
+        height: 100,
+        marginBottom: 30,
+        marginTop: 50,
+        marginLeft: 90
+    },
     titulo: {
         color: '#000000',
         fontSize: 24,
         alignSelf: 'center',
-        fontFamily: 'Circular Std',
+        light: {
+            fontFamily: 'sans-serif-light',
+        },
         fontWeight: 'bold',
-        marginTop: 205,
         marginBottom: 25,
+        marginTop: 10
     },
     subtitulo: {
         color: '#000000',
         fontSize: 24,
         alignSelf: 'center',
-        fontFamily: 'Circular Std',
-        fontWeight: 'bold',
+        thin: {
+            fontFamily: 'sans-serif-thin',
+            fontWeight: 'normal',
+        },
     },
     subtitulo2: {
         color: '#000000',
         fontSize: 24,
         alignSelf: 'center',
-        fontFamily: 'Circular Std',
-        fontWeight: 'bold',
-        marginBottom: 25,
+        medium: {
+            fontFamily: 'sans-serif-medium',
+            fontWeight: 'normal',
+        },
+        marginBottom: 5,
     },
     boton: {
         borderRadius: 50,
