@@ -3,19 +3,20 @@ import * as fonts from 'expo-font'
 
 import { Text, TextInput, StyleSheet, View, TouchableOpacity, Image } from 'react-native';
 
-const LoginScreen = props => {
+const LoginScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <View>
-                <Text style={styles.titulo}>Diario A Diario</Text>
+                <Image style={styles.logo} source={require('../Images/logo-diario.png')}></Image>
+                <Text style={styles.titulo}>DiarioAdiario</Text>
                 <View style={styles.userDiv}>
                     <Image style={styles.fotos} source={require('../Images/perfil.png')} />
-                    <TextInput style={styles.form} defaultValue='Usuario'
+                    <TextInput style={styles.form} placeholder='Usuario'
                     />
                 </View>
                 <View style={styles.contDiv}>
                     <Image style={styles.fotos} source={require('../Images/candado.png')} />
-                    <TextInput style={styles.form} defaultValue='Contraseña'
+                    <TextInput style={styles.form} textContentType='password' placeholder='Contraseña'
                     />
                 </View>
                 <TouchableOpacity
@@ -30,9 +31,10 @@ const LoginScreen = props => {
                 </TouchableOpacity>
                 <View style={styles.center}>
                     <Text style={styles.noTiene}>¿Aún no tienes cuenta? </Text>
-                    <TouchableOpacity>
-                        <Text style={styles.crear}>Crear Cuenta</Text>
-                    </TouchableOpacity>
+                    <TouchableOpacity 
+                    onPress={() => { navigation.navigate('Register') }}>
+                    <Text style={styles.crear}>Crear Cuenta</Text>
+                </TouchableOpacity>
                 </View>
             </View>
         </View >
@@ -43,12 +45,21 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: '#EEF2F5'
+        backgroundColor: '#ffff'
+    },
+    logo: {
+        width: 100,
+        height: 100,
+        marginBottom: -80,
+        marginTop: 20,
+        marginLeft: 90,
+        borderRadius: 15,
     },
     titulo: {
         fontSize: 30,
         marginTop: 120,
         alignSelf: 'center',
+        marginBottom: 25,
     },
     userDiv: {
         width: 271,
@@ -106,11 +117,13 @@ const styles = StyleSheet.create({
         color: '#216992',
         textAlign: 'center',
         marginTop: 38,
+        marginBottom: -20,
     },
     noTiene: {
         fontFamily: 'Circular Std',
         fontSize: 18,
         color: '#6A6565',
+        marginTop: -25,
     },
     crear: {
         fontFamily: 'Circular Std',

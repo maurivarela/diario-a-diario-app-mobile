@@ -3,46 +3,47 @@ import * as fonts from 'expo-font'
 
 import { Text, TextInput, StyleSheet, View, TouchableOpacity, Image } from 'react-native';
 
-const RegisterScreen = props => {
+const RegisterScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <View>
-                <Text style={styles.titulo}>Diario A Diario</Text>
+                <Text style={styles.titulo}>DiarioAdiario</Text>
                 <View style={styles.userDiv}>
                     <Image style={styles.fotos} source={require('../Images/perfil.png')} />
-                    <TextInput style={styles.form} defaultValue='Usuario'
+                    <TextInput style={styles.form} placeholder='Usuario'
                     />
                 </View>
                 <View style={styles.userDiv}>
                     <Image style={styles.fotos} source={require('../Images/perfil.png')} />
-                    <TextInput style={styles.form} defaultValue='Correo electronico'
+                    <TextInput style={styles.form} placeholder='Correo electronico'
                     />
                 </View>
                 <View style={styles.contDiv}>
                     <Image style={styles.fotos} source={require('../Images/candado.png')} />
-                    <TextInput style={styles.form} defaultValue='Contraseña'
+                    <TextInput style={styles.form} placeholder='Contraseña'
                     />
                 </View>
                 <View style={styles.contDiv}>
                     <Image style={styles.fotos} source={require('../Images/candado.png')} />
-                    <TextInput style={styles.form} defaultValue='Repite la contraseña'
+                    <TextInput style={styles.form} placeholder='Repite la contraseña'
                     />
                 </View>
                 <View>
                     <Text style={styles.olvide}>
-                        Al presionar en "Registrarse", aceptas nuestras Condiciones y la Política de datos.
+                        Al presionar en "Registrarse", aceptas nuestras Condiciones y la Política de datos y servicios.
                 </Text>
                 </View>
                 <TouchableOpacity
                     style={styles.boton}
-                    onPress={() => props.navigation.navigate('')}>
+                    onPress={() => props.navigation.navigate('login')}>
                     <Text style={styles.ini}>Registrarse</Text>
                 </TouchableOpacity>
                 <View style={styles.center}>
                     <Text style={styles.noTiene}>¿Ya tienes cuenta? </Text>
-                    <TouchableOpacity>
-                        <Text style={styles.crear}>Iniciar Sesión</Text>
-                    </TouchableOpacity>
+                     <TouchableOpacity 
+                    onPress={() => { navigation.navigate('Login') }}>
+                    <Text style={styles.crear}>Iniciar Sesión</Text>
+                </TouchableOpacity>
                 </View>
             </View>
         </View >
@@ -53,30 +54,33 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: '#EEF2F5'
+        backgroundColor: '#ffff'
     },
     titulo: {
         fontSize: 30,
-        marginTop: 12,
+        marginTop: 30,
+        marginBottom: 10,
         alignSelf: 'center',
     },
     userDiv: {
-        width: 271,
+        width: 185,
         borderBottomColor: '#C4C4C4',
         borderBottomWidth: 1,
         marginTop: 25,
         display: 'flex',
         flexDirection: 'row',
-        alignItems: 'flex-end',
+        alignItems: 'center',
+        marginLeft: 90,
     },
     contDiv: {
-        width: 271,
+        width: 185,
         borderBottomColor: '#C4C4C4',
         borderBottomWidth: 1,
-        marginTop: 20,
+        marginTop: 25,
         display: 'flex',
         flexDirection: 'row',
-        alignItems: 'flex-end',
+        alignItems: 'center',
+        marginLeft: 90,
     },
     fotos: {
         width: 28,
@@ -95,7 +99,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#004680',
         width: 265,
         height: 42,
-        marginTop: 46,
+        marginTop: 0,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -103,24 +107,29 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.25,
         shadowRadius: 3,
+        marginLeft: 45,
     },
     ini: {
         color: '#EEF2F5',
         fontSize: 24,
         alignSelf: 'center',
-        margin: 6,
+        marginLeft: 6,
     },
     olvide: {
         fontFamily: 'Circular Std',
         fontSize: 15,
         color: '#000000',
         textAlign: 'center',
-        marginTop: 38,
+        marginTop: 45,
+        marginBottom: 50,
+        marginLeft: 8,
+        marginRight: 8,
     },
     noTiene: {
         fontFamily: 'Circular Std',
         fontSize: 18,
         color: '#6A6565',
+        marginTop: -50,
     },
     crear: {
         fontFamily: 'Circular Std',

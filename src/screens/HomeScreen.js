@@ -2,6 +2,7 @@ import React from 'react';
 import * as fonts from 'expo-font'
 
 
+
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { preventAutoHide } from 'expo-splash-screen';
 
@@ -10,7 +11,7 @@ const HomeScreen = ({ navigation }) => {
         <View style={styles.container}>
             <View>
                 <Image style={styles.logo} source={require('../Images/logo-diario.png')}></Image>
-                <Text style={styles.titulo}>Diario A Diario</Text>
+                <Text style={styles.titulo}>DiarioAdiario</Text>
                 <Text style={styles.subtitulo}>Cambiando el futuro,</Text>
                 <Text style={styles.subtitulo2}>un día a la vez</Text>
                 <TouchableOpacity style={styles.boton}
@@ -30,18 +31,19 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: '#EEF2F5',
+        backgroundColor: '#ffff',
     },
     logo: {
         width: 100,
         height: 100,
         marginBottom: 30,
         marginTop: 50,
-        marginLeft: 90
+        marginLeft: 90,
+        borderRadius: 15,
     },
     titulo: {
         color: '#000000',
-        fontSize: 24,
+        fontSize: 35,
         alignSelf: 'center',
         light: {
             fontFamily: 'sans-serif-light',
