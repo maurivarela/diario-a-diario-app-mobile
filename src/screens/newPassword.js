@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { Text, TextInput, StyleSheet, View, TouchableOpacity, Image } from 'react-native';
 
-const LoginScreen = ({ navigation }) => {
+const cambiarContra = ({ navigation }) => {
     const [username, setUserName] = useState('');
     const [contraseña, setPassword] = useState('');
     const [errortext, setErrortext] = useState('');
 
 
-    function submitData()
-    {
-            const urlPostman = 'http://10.1.14.79:3600/login/';
+    function changePasswd(){
+            const urlPostman = 'http://10.1.14.79:3600/cambiar/';
             fetch(urlPostman, {
                 method: 'post', 
                 headers: {
@@ -55,20 +54,14 @@ const LoginScreen = ({ navigation }) => {
                         required
                     />
                 </View>
+                <Text style={styles.newPasswordText}>Para cambiar la contraseña deberas de ingresar un nombre de usuario y la nueva contraseña</Text>
                 <TouchableOpacity
                     style={styles.boton}
-                    onPress={() =>{submitData() && console.log(username + '/' + contraseña)}}
+                    onPress={() =>{changePasswd() && console.log(username + '/' + contraseña)}}
                 >
-                    <Text style={styles.ini}>Iniciar sesión</Text>
+                    <Text style={styles.ini}>Cambiar contraseña</Text>
                 </TouchableOpacity>
-                <TouchableOpacity
-                onPress={() => { navigation.navigate('Cambiar') }}
-                >
-                    <Text style={styles.olvide}>
-                        Olvidé mi contraseña
-          </Text>
-                </TouchableOpacity>
-                <View style={styles.center}>
+                            <View style={styles.center}>
                     <Text style={styles.noTiene}>¿Aún no tienes cuenta? </Text>
                     <TouchableOpacity
                         onPress={() => { navigation.navigate('Register') }}>
@@ -140,6 +133,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3,
         justifyContent: 'center',
+        marginBottom: '10%',
     },
     ini: {
         color: '#EEF2F5',
@@ -160,6 +154,14 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: '#6A6565',
     },
+    newPasswordText: {
+        fontFamily: 'Roboto',
+        fontSize: 15,
+        color: '#6A6565',
+        marginTop: '15%',
+        textAlign: 'center',
+        margin: '5%',
+    },
     crear: {
         fontFamily: 'Roboto',
         fontSize: 18,
@@ -170,7 +172,7 @@ const styles = StyleSheet.create({
     },
 });
 
-export default LoginScreen;
+export default cambiarContra;
 
 
 
